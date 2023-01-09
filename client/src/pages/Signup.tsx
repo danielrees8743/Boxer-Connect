@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import ReloadButton from '../components/ReloadButton';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,8 +9,12 @@ interface Club {
   name: string;
 }
 
-const fetchClubs = async (): Promise<any> => {
+const fetchClubs = async () => {
   const response = await axios.get('http://localhost:8001/api/clubs');
+  if (response.status !== 200) {
+    throw new Error('Error fetching clubs');
+  }
+
   return response.data;
 };
 
@@ -39,16 +43,17 @@ export default function Signup() {
     return response.data;
   });
 
-  const { data } = useQuery(['clubs'], fetchClubs);
+  const { data } = useQuery({ queryKey: ['clubs'], queryFn: fetchClubs });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     signup.mutate(formValues, {
-      onSuccess: (data) => {
-        console.log(data);
+      onSuccess: (response) => {
+        console.log(response.this.state.first);
         navigate('/account');
       },
+      onError: (error: unknown) => console.log(error),
     });
   };
 
