@@ -20,6 +20,7 @@ import Motivation from './pages/about/Motivation';
 import Reason from './pages/about/Reason';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Account from './pages/protected/Account';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path='signup' element={<Signup />} />
       <Route path='login' element={<Login />} />
       <Route path='about' element={<AboutLayout />} />
+      <Route path='account' element={<Account />} />
 
       <Route path='about' element={<AboutLayout />}>
         <Route path='motivation' element={<Motivation />} />
