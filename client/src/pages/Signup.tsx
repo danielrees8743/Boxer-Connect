@@ -2,6 +2,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import axios from 'axios';
 import ReloadButton from '../components/ReloadButton';
+import { useNavigate } from 'react-router-dom';
 
 interface Club {
   _id: string;
@@ -14,6 +15,7 @@ const fetchClubs = async (): Promise<any> => {
 };
 
 export default function Signup() {
+  const navigate = useNavigate();
   const [formValues] = useState({
     firstName: '',
     lastName: '',
@@ -42,7 +44,12 @@ export default function Signup() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    signup.mutate(formValues);
+    signup.mutate(formValues, {
+      onSuccess: (data) => {
+        console.log(data);
+        navigate('/account');
+      },
+    });
   };
 
   if (signup.error)
