@@ -25,7 +25,7 @@ export const sendNotFound = (
 export const sendError = (
   res: Response,
   status: number,
-  error: any
+  error: unknown
 ): [number, Object] => {
   return [
     status,

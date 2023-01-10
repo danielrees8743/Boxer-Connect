@@ -1,15 +1,18 @@
-import { Request, Response } from 'express';
-import { sendResponse, sendNotFound, sendError } from '../utils/apiResponse';
+import { Request, Response, NextFunction } from 'express';
+import catchErrorsAsync from '../utils/catchErrorsAsync';
+import AppError from '../utils/appError';
 import User from '../models/userModel';
 
-export const signup = async (req: Request, res: Response): Promise<void> => {
-  try {
+export const signup = catchErrorsAsync(
+  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const newUser = await User.create(req.body);
-
-    sendResponse(res, 201, newUser);
-  } catch (error) {
-    sendError(res, 500, error);
+    res.status(201).json({
+      status: 'success',
+      data: {
+        newUser,
+      },
+    });
   }
-};
+);
 
 export default { signup };

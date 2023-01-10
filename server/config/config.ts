@@ -8,7 +8,8 @@ dotenv.config({ path: './config.env' });
 
 export const config: IConfig = {
   app: {
-    port: process.env.PORT || 8080,
+    portProd: process.env.DEVELOPMENT_PORT || 4001,
+    protDev: process.env.PRODUCTION_PORT || 8080,
     name: 'boxer-connect',
   },
   db: {

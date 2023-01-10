@@ -1,10 +1,10 @@
 //info Connection to MongoDB Atlas
 import mongoose from 'mongoose';
 import config, { theme } from './config';
-import betterLogging from 'better-logging';
+// import betterLogging from 'better-logging';
 
 mongoose.set('strictQuery', true);
-betterLogging(console);
+// betterLogging(console);
 
 const dbConnectionString = `mongodb+srv://${config.db.userName}:${config.db.password}@${config.db.collection}.5pjfa.mongodb.net/Boxer-connect?retryWrites=true&w=majority`;
 
