@@ -1,6 +1,7 @@
 interface IConfig {
   app: {
-    port: number | string;
+    portProd: number | string;
+    protDev: number | string;
     name?: string;
   };
   db: {
