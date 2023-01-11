@@ -1,13 +1,21 @@
 interface IConfig {
   app: {
     portProd: number | string;
-    protDev: number | string;
+    portDev: number | string;
     name?: string;
   };
   db: {
     collection?: string;
     userName?: string;
     password?: string;
+  };
+  email: {
+    host?: string | undefined;
+    port?: string | number;
+    auth?: {
+      user?: string;
+      pass?: string;
+    };
   };
 }
 
