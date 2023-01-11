@@ -33,7 +33,7 @@ app.use('/api/clubs', clubRouter);
 app.use('/api/users', userRouter);
 
 //info Error handling
-app.all('*', (req, res, next) => {
+app.all('*', (req: Request, res: Response, next: NextFunction) => {
   return next(
     new AppError(`Can't find ${req.originalUrl} on this server!`, 404)
   );
@@ -44,8 +44,10 @@ app.use(globalErrorHandler);
 //info Server and Database connection
 const port =
   process.env.NODE_ENV === 'development'
-    ? config.app.portProd
-    : config.app.protDev;
+    ? //info Production port
+      config.app.portProd
+    : //info Development port
+      config.app.protDev;
 app.listen(port, () => {
   console.info(theme.info(`Server is running on http://localhost:${port}`));
   connectDB();

@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema<IUser>({
   password: {
     type: String,
     required: [true, 'Please enter your password'],
-    minlength: [8, 'Password must be at least 8 characters'],
+    minlength: [8, 'You Password need to be 8 characters or more'],
     select: false,
   },
   passwordConfirm: {
@@ -40,7 +40,7 @@ const UserSchema = new mongoose.Schema<IUser>({
     default: 'boxer',
   },
   contactNumber: {
-    type: Number,
+    type: String,
     required: [true, 'Please enter a contact number'],
   },
   club: {

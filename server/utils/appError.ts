@@ -5,12 +5,13 @@ export default class AppError extends Error {
   public status: string;
   public isOperational: boolean;
 
-  constructor(message: any, statusCode: number) {
+  constructor(message: string, statusCode: number) {
     super(message);
 
     this.message = message;
     this.statusCode = statusCode;
     this.status = `${statusCode}`.startsWith('4') ? 'fail' : 'error';
+
     this.isOperational = true;
   }
 }

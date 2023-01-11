@@ -6,7 +6,10 @@ const router = Router();
 
 router.post('/signup', authController.signup);
 
-router.route('/').get(userController.getAllUsers).post(userController.addUser);
+router
+  .route('/')
+  .get(userController.getAllUsers)
+  .post(userController.createUser);
 
 router
   .route('/:id')

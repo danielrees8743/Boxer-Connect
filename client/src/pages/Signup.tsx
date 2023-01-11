@@ -1,8 +1,8 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
-import axios, { AxiosError } from 'axios';
 import ReloadButton from '../components/ReloadButton';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 interface Club {
   _id: string;
@@ -50,7 +50,7 @@ export default function Signup() {
 
     signup.mutate(formValues, {
       onSuccess: (response) => {
-        console.log(response.this.state.first);
+        console.log(response);
         navigate('/account');
       },
       onError: (error: unknown) => console.log(error),
