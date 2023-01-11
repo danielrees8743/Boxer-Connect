@@ -47,7 +47,7 @@ const port =
     ? //info Production port
       config.app.portProd
     : //info Development port
-      config.app.protDev;
+      config.app.portDev;
 app.listen(port, () => {
   console.info(theme.info(`Server is running on http://localhost:${port}`));
   connectDB();
