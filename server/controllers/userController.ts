@@ -2,7 +2,7 @@ import User from '../models/userModel';
 import { Request, Response, NextFunction } from 'express';
 import { sendResponse, sendError, sendNotFound } from '../utils/apiResponse';
 import catchErrorsAsync from '../utils/catchErrorsAsync';
-import { IUser } from '../types/Interfaces';
+import { ICoach } from '../types/Interfaces';
 
 //* @ Get all users
 //* @ route GET /api/users

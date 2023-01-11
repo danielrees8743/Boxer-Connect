@@ -30,26 +30,25 @@ interface IClub {
 }
 
 interface IBoxer {
+  club?: IClub;
   firstName?: string;
   lastName?: string;
   nickname?: string;
+  coach?: string;
   dob: Date;
   age?: number;
   email?: string;
-  club?: IClub;
   weight?: number;
   height?: number;
-  wins?: number;
-  losses?: number;
-  draws?: number;
   stance?: string;
-  id?: string;
   picture?: string;
+  id?: string;
+  fights?: IFights;
   licenseNumber?: string;
   fitToFight?: boolean;
 }
 
-interface IUser {
+interface ICoach {
   firstName?: string;
   lastName?: string;
   email?: string;
@@ -58,17 +57,19 @@ interface IUser {
   role?: string;
   contactNumber?: number;
   club?: IClub;
+  accountConfirmed?: boolean;
 }
 interface IFights {
   fighter?: IBoxer;
-  opponent?: IBoxer;
-  date: { Date: Date };
-  results?: {
+  wins?: number[];
+  draws?: number[];
+  losses?: number[];
+  opponent?: {
+    boxer?: IBoxer;
+    date?: Date;
     location?: IClub;
-    win?: string[];
-    loss?: string[];
-    draw?: string[];
+    result?: string;
   };
 }
 
-export { IConfig, ITheme, IClub, IBoxer, IUser, IFights };
+export { IConfig, ITheme, IClub, IBoxer, ICoach, IFights };

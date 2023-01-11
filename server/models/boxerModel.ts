@@ -4,6 +4,11 @@ import shortid from 'shortid';
 import Club from './clubModel';
 
 const BoxerSchema = new Schema<IBoxer>({
+  club: {
+    type: Schema.Types.ObjectId,
+    ref: 'Club',
+    required: [true, 'Please enter your club'],
+  },
   firstName: {
     type: String,
     required: [true, 'Please enter your first name'],
@@ -27,11 +32,6 @@ const BoxerSchema = new Schema<IBoxer>({
     required: [true, 'Please enter your email'],
     unique: true,
   },
-  club: {
-    type: Schema.Types.ObjectId,
-    ref: 'Club',
-    required: [true, 'Please enter your club'],
-  },
   weight: {
     type: Number,
     required: [true, 'Please enter your weight in kg'],
@@ -40,27 +40,20 @@ const BoxerSchema = new Schema<IBoxer>({
     type: Number,
     required: [true, 'Please enter your height in cm'],
   },
-  wins: {
-    type: Number,
-    required: [true, 'Please enter your wins'],
-  },
-  losses: {
-    type: Number,
-    required: [true, 'Please enter your losses'],
-  },
-  draws: {
-    type: Number,
-    required: [true, 'Please enter your draws'],
-  },
   stance: {
     type: String,
     required: [true, 'Please enter your stance, either orthodox or southpaw'],
   },
+  picture: {
+    type: String,
+  },
   id: {
     type: String,
   },
-  picture: {
-    type: String,
+  fights: {
+    type: Schema.Types.ObjectId,
+    ref: 'Fights',
+    required: false,
   },
   licenseNumber: {
     type: String,
@@ -94,4 +87,4 @@ BoxerSchema.pre('save', async function (next): Promise<void> {
   next();
 });
 
-export default mongoose.model('Boxer', BoxerSchema);
+export default mongoose.model<IBoxer>('Boxer', BoxerSchema);
