@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
-import { IUser } from '../types/Interfaces';
+import { ICoach } from '../types/Interfaces';
 import Club from './clubModel';
 import bcrypt from 'bcrypt';
 
-const UserSchema = new mongoose.Schema<IUser>({
+const CoachSchema = new mongoose.Schema<ICoach>({
   firstName: {
     type: String,
     required: [true, 'Please enter your first name'],
@@ -36,8 +36,8 @@ const UserSchema = new mongoose.Schema<IUser>({
   },
   role: {
     type: String,
-    enum: ['admin', 'club', 'boxer'],
-    default: 'boxer',
+    enum: ['Head-Coach', 'Assistant-coach'],
+    default: 'Assistant-Coach',
   },
   contactNumber: {
     type: String,
@@ -47,9 +47,13 @@ const UserSchema = new mongoose.Schema<IUser>({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Club',
   },
+  accountConfirmed: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-UserSchema.pre('save', async function (next) {
+CoachSchema.pre('save', async function (next) {
   const club = await Club.findOne({ club: this.club });
   if (!club) {
     return next(new Error('Club does not exist'));
@@ -58,11 +62,11 @@ UserSchema.pre('save', async function (next) {
   next();
 });
 
-UserSchema.pre('save', async function (next): Promise<void> {
+CoachSchema.pre('save', async function (next): Promise<void> {
   if (!this.isModified('password')) return next();
   this.password = await bcrypt.hash(this.password, 12);
   this.passwordConfirm = undefined;
   next();
 });
 
-export default mongoose.model('User', UserSchema);
+export default mongoose.model('Coach', CoachSchema);

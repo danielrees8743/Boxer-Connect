@@ -1,6 +1,7 @@
 import Boxer from '../models/boxerModel';
 import { Request, Response } from 'express';
 import { sendResponse, sendError, sendNotFound } from '../utils/apiResponse';
+import catchErrorsAsync from '../utils/catchErrorsAsync';
 
 //* @ Get all boxers
 //* @ route GET /api/boxers
@@ -35,18 +36,15 @@ export const getBoxer = async (req: Request, res: Response): Promise<void> => {
     sendError(res, 500, error);
   }
 };
-
 //* @ Add a boxer
 //* @ route POST /api/boxers
 //* @ access Private
-export const addBoxer = async (req: Request, res: Response): Promise<void> => {
-  try {
+export const addBoxer = catchErrorsAsync(
+  async (req: Request, res: Response): Promise<void> => {
     const boxer = await Boxer.create(req.body);
     sendResponse(res, 201, boxer);
-  } catch (error) {
-    sendError(res, 500, error);
   }
-};
+);
 
 //* @ Update a boxer
 //* @ route PATCH /api/boxers/:id
