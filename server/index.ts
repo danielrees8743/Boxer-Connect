@@ -27,6 +27,12 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+// note Middleware for testing purposes
+app.use((req: Request, res: Response, next: NextFunction) => {
+  // console.log(req.headers);
+  next();
+});
+
 //info Routes
 app.use('/api/boxers', boxerRouter);
 app.use('/api/clubs', clubRouter);
