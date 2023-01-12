@@ -25,6 +25,10 @@ export const config: IConfig = {
       pass: process.env.EMAIL_PASSWORD,
     },
   },
+  jwt: {
+    secret: process.env.JWT_SECRET,
+    expiresIn: process.env.JWT_EXPIRES_IN,
+  },
 };
 
 export const theme: ITheme = {

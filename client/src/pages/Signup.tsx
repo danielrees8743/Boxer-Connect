@@ -49,11 +49,12 @@ export default function Signup() {
     event.preventDefault();
 
     signup.mutate(formValues, {
-      onSuccess: (response) => {
+      onSuccess: (response: Response) => {
         console.log(response);
-        navigate('/account');
+        if (response.status !== 201) {
+          navigate('/account');
+        }
       },
-      onError: (error: unknown) => console.log(error),
     });
   };
 

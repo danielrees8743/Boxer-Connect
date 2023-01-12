@@ -18,6 +18,12 @@ export const validationError = (err: AppError) => {
   return new AppError(message, 400);
 };
 
+export const webTokenError = (err: AppError) =>
+  new AppError('Invalid token. Please log in again!', 401);
+
+export const webTokenExpired = (err: AppError) =>
+  new AppError('Your token has expired! Please log in again.', 401);
+
 export const sendErrorDev = (err: AppError, res: any) => {
   res.status(err.statusCode).json({
     status: err.status,
@@ -58,6 +64,8 @@ export default (
     if (error.name === 'CastError') error = handleDBCastError(error);
     if (error.code === 11000) error = duplicateDBFields(error);
     if (error.name === 'ValidationError') error = validationError(error);
+    if (error.name === 'JsonWebTokenError') error = webTokenError(error);
+    if (error.name === 'TokenExpiredError') error = webTokenExpired(error);
 
     sendErrorProd(error, res);
   }

@@ -27,6 +27,7 @@ const CoachSchema = new mongoose.Schema<ICoach>({
     type: String,
     required: [true, 'Please confirm your password'],
     validate: {
+      //note this will only work on CREATE and SAVE, not on UPDATE!!
       validator: function (el: string) {
         return el === this.password;
       },
@@ -37,7 +38,7 @@ const CoachSchema = new mongoose.Schema<ICoach>({
   role: {
     type: String,
     enum: ['Head-Coach', 'Assistant-coach'],
-    default: 'Assistant-Coach',
+    default: 'Head-Coach',
   },
   contactNumber: {
     type: String,
@@ -51,8 +52,10 @@ const CoachSchema = new mongoose.Schema<ICoach>({
     type: Boolean,
     default: false,
   },
+  passwordChangedAt: Date,
 });
 
+//info pre save middleware
 CoachSchema.pre('save', async function (next) {
   const club = await Club.findOne({ club: this.club });
   if (!club) {
@@ -64,9 +67,29 @@ CoachSchema.pre('save', async function (next) {
 
 CoachSchema.pre('save', async function (next): Promise<void> {
   if (!this.isModified('password')) return next();
-  this.password = await bcrypt.hash(this.password, 12);
+  this.password = await bcrypt.hash(this.password, 14);
   this.passwordConfirm = undefined;
   next();
 });
 
-export default mongoose.model('Coach', CoachSchema);
+//info instance method - available on all documents and instance's of a collection
+CoachSchema.methods.correctPassword = async function (
+  candidatePassword: string,
+  userPassword: string
+): Promise<boolean> {
+  return await bcrypt.compare(candidatePassword, userPassword);
+};
+
+CoachSchema.methods.changedPasswordAfter = function (JWTTimestamp: number) {
+  if (this.passwordChangedAt) {
+    const changedTimestamp = parseFloat(
+      Number(this.passwordChangedAt.getTime() / 1000).toFixed(10)
+    );
+
+    console.log(changedTimestamp, JWTTimestamp);
+    return JWTTimestamp < changedTimestamp;
+  }
+  return false;
+};
+
+export default mongoose.model<ICoach>('Coach', CoachSchema);

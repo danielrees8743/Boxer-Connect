@@ -17,6 +17,10 @@ interface IConfig {
       pass?: string;
     };
   };
+  jwt: {
+    secret?: string;
+    expiresIn?: string;
+  };
 }
 
 //! Need to look at this maybe a generic !!
@@ -66,7 +70,14 @@ interface ICoach {
   contactNumber?: number;
   club?: IClub;
   accountConfirmed?: boolean;
+  passwordChangedAt?: Date;
+  correctPassword: (
+    password: string,
+    passwordConfirm: string
+  ) => Promise<boolean>;
+  changedPasswordAfter: (JWTTimestamp: number) => boolean;
 }
+
 interface IFights {
   fighter?: IBoxer;
   wins?: number[];

@@ -1,9 +1,13 @@
 import { Router } from 'express';
 import boxerController from '../controllers/boxerController';
+import authController from '../controllers/authController';
 
 const router = Router();
 
-router.route('/').get(boxerController.getAllBoxers).post(boxerController.addBoxer);
+router
+  .route('/')
+  .get(authController.protect, boxerController.getAllBoxers)
+  .post(boxerController.addBoxer);
 
 router
   .route('/:id')
