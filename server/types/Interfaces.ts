@@ -20,6 +20,7 @@ interface IConfig {
   jwt: {
     secret?: string;
     expiresIn?: string;
+    cookieExpiresIn?: string;
   };
 }
 
@@ -60,22 +61,28 @@ interface IBoxer {
   fitToFight?: boolean;
 }
 
+type Role = 'Head-Coach' | 'Assistant-Coach' | 'Boxer';
 interface ICoach {
+  id(id: string): string;
   firstName?: string;
   lastName?: string;
   email?: string;
   password: string;
   passwordConfirm?: string;
-  role?: string;
-  contactNumber?: number;
+  role?: Role;
+  contactNumber?: string;
   club?: IClub;
   accountConfirmed?: boolean;
   passwordChangedAt?: Date;
+  passwordResetToken?: string;
+  passwordResetExpires?: Date;
+  active?: boolean;
   correctPassword: (
     password: string,
     passwordConfirm: string
   ) => Promise<boolean>;
   changedPasswordAfter: (JWTTimestamp: number) => boolean;
+  createRandomPasswordToken: () => string;
 }
 
 interface IFights {
@@ -91,4 +98,10 @@ interface IFights {
   };
 }
 
-export { IConfig, ITheme, IClub, IBoxer, ICoach, IFights };
+interface ICookie {
+  expires?: Date;
+  httpOnly: boolean;
+  secure: boolean;
+}
+
+export { IConfig, ITheme, IClub, IBoxer, ICoach, IFights, ICookie };

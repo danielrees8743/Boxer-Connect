@@ -9,10 +9,10 @@ export default function RootLayout() {
         <nav>
           <h1>Boxer Connect</h1>
           <NavLink to='/'>Home</NavLink>
-          <NavLink to='/about'>About</NavLink>
-          <NavLink to='/help'>Help</NavLink>
           <NavLink to='signup'>SignUp</NavLink>
           <NavLink to='login'>Login</NavLink>
+          <NavLink to='/help'>Help</NavLink>
+          <NavLink to='/about'>About</NavLink>
         </nav>
         <Breadcrumbs />
       </header>

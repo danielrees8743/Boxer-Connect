@@ -10,7 +10,7 @@ export const config: IConfig = {
   app: {
     portProd: process.env.DEVELOPMENT_PORT || 4001,
     portDev: process.env.PRODUCTION_PORT || 8080,
-    name: 'boxer-connect',
+    name: 'Boxer-Connect',
   },
   db: {
     collection: process.env.DB_COLLECTION,
@@ -28,6 +28,7 @@ export const config: IConfig = {
   jwt: {
     secret: process.env.JWT_SECRET,
     expiresIn: process.env.JWT_EXPIRES_IN,
+    cookieExpiresIn: process.env.JWT_COOKIE_EXPIRES_IN,
   },
 };
 
