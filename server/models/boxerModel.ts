@@ -76,7 +76,6 @@ BoxerSchema.pre('save', async function (next) {
   if (!club) {
     throw new Error('Club does not exist');
   }
-
   this.club = club;
 
   next();

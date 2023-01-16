@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 import { ICoach } from '../types/Interfaces';
 import Club from './clubModel';
 import bcrypt from 'bcrypt';
+import crypto from 'crypto';
+import validator from 'validator';
 
 const CoachSchema = new mongoose.Schema<ICoach>({
   firstName: {
@@ -14,8 +16,13 @@ const CoachSchema = new mongoose.Schema<ICoach>({
   },
   email: {
     type: String,
-    required: [true, 'Please enter your email'],
+    required: [true, 'Please enter your email address'],
+    lowercase: true,
     unique: true,
+    validate: [
+      validator.isEmail,
+      'The email entered is not valid, Please enter a valid email',
+    ],
   },
   password: {
     type: String,
@@ -37,8 +44,8 @@ const CoachSchema = new mongoose.Schema<ICoach>({
   },
   role: {
     type: String,
-    enum: ['Head-Coach', 'Assistant-coach'],
-    default: 'Head-Coach',
+    enum: ['Head-Coach', 'Assistant-Coach'],
+    default: 'Assistant-Coach',
   },
   contactNumber: {
     type: String,
@@ -53,6 +60,13 @@ const CoachSchema = new mongoose.Schema<ICoach>({
     default: false,
   },
   passwordChangedAt: Date,
+  passwordResetToken: String,
+  passwordResetExpires: Date,
+  active: {
+    type: Boolean,
+    default: true,
+    select: false,
+  },
 });
 
 //info pre save middleware
@@ -72,6 +86,19 @@ CoachSchema.pre('save', async function (next): Promise<void> {
   next();
 });
 
+CoachSchema.pre('save', function (next) {
+  if (!this.isModified('password') || this.isNew) return next();
+
+  //note -1000 is set to ensure that changedAt is always before the token is issued, this prevents any issues with being automatically logged in after changing password
+  this.passwordChangedAt = new Date(Date.now() - 1000);
+  next();
+});
+
+CoachSchema.pre(/^find/, function (next) {
+  this.find({ active: { $ne: false } });
+  next();
+});
+
 //info instance method - available on all documents and instance's of a collection
 CoachSchema.methods.correctPassword = async function (
   candidatePassword: string,
@@ -80,16 +107,29 @@ CoachSchema.methods.correctPassword = async function (
   return await bcrypt.compare(candidatePassword, userPassword);
 };
 
-CoachSchema.methods.changedPasswordAfter = function (JWTTimestamp: number) {
+CoachSchema.methods.changedPasswordAfter = function (
+  JWTTimestamp: number
+): boolean {
   if (this.passwordChangedAt) {
     const changedTimestamp = parseFloat(
       Number(this.passwordChangedAt.getTime() / 1000).toFixed(10)
     );
 
-    console.log(changedTimestamp, JWTTimestamp);
     return JWTTimestamp < changedTimestamp;
   }
   return false;
 };
 
+CoachSchema.methods.createRandomPasswordToken = function (): string {
+  const resetToken: string = crypto.randomBytes(32).toString('hex');
+
+  this.passwordResetToken = crypto
+    .createHash('sha256')
+    .update(resetToken)
+    .digest('hex');
+
+  this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+
+  return resetToken;
+};
 export default mongoose.model<ICoach>('Coach', CoachSchema);
