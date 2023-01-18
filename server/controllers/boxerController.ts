@@ -11,7 +11,8 @@ export const getAllBoxers = async (
   res: Response
 ): Promise<void> => {
   try {
-    const boxers = await Boxer.find().populate('').select('-__v');
+    const boxers = await Boxer.find();
+
     sendResponse(res, 200, boxers);
   } catch (error) {
     sendError(res, 500, error);

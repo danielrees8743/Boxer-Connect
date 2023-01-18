@@ -171,7 +171,10 @@ export const restrictTo = (...roles: string[]) => {
   return (req: AuthRequest, res: Response, next: NextFunction): void => {
     if (req.user?.role && !roles.includes(req.user.role)) {
       return next(
-        new AppError('You do not have permission to perform this action', 403)
+        new AppError(
+          'You are not authorized to do this, Please see the Head-Coach',
+          403
+        )
       );
     }
     next();

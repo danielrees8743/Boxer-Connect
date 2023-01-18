@@ -1,6 +1,6 @@
 import './App.css';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+// import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -47,14 +47,9 @@ const router = createBrowserRouter(
 );
 
 export default function App() {
-  const queryClient = new QueryClient();
-
   return (
     <div className='App'>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
+      <RouterProvider router={router} />
     </div>
   );
 }

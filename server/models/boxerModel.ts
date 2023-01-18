@@ -86,4 +86,9 @@ BoxerSchema.pre('save', async function (next): Promise<void> {
   next();
 });
 
+BoxerSchema.pre(/^find/, function (next) {
+  this.populate({ path: 'club', select: '-__v' }).select('-__v');
+  next();
+});
+
 export default mongoose.model<IBoxer>('Boxer', BoxerSchema);

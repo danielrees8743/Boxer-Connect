@@ -9,7 +9,7 @@ interface Club {
   name: string;
 }
 
-const fetchClubs = async () => {
+const fetchClubs = async (): Promise<any> => {
   const response = await axios.get('http://localhost:8001/api/clubs');
   if (response.status !== 200) {
     throw new Error('Error fetching clubs');

@@ -51,7 +51,8 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-//note Middleware for testing purposes
+//info Testing middleware
+//note Middleware for testing purposes if needed
 app.use((req: Request, res: Response, next: NextFunction) => {
   // console.log(req.headers);
   next();
@@ -69,6 +70,7 @@ app.all('*', (req: Request, res: Response, next: NextFunction) => {
   );
 });
 
+//info Global error handling middleware
 app.use(globalErrorHandler);
 
 //info Server and Database connection

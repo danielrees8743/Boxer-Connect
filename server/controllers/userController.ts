@@ -22,7 +22,8 @@ const filterObj = (obj: Request<Object>, ...allowedFields: string[]) => {
 //* @ access Private
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
-    const users = await User.find().populate('club').select('-__v');
+    const users = await User.find();
+
     return res
       .status(200)
       .json({ status: 'success', results: users.length, data: { users } });
