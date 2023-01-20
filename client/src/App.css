@@ -1,4 +1,4 @@
-nav {
+/* nav {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -22,4 +22,20 @@ nav a.active {
   color: royalblue;
   background-color: #2b3452;
   border-radius: 10px;
+} */
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
 }

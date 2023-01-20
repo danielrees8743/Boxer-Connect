@@ -1,6 +1,8 @@
+import { Box } from '@chakra-ui/react';
+
 export default function Contact() {
   return (
-    <div>
+    <Box as='div' display='flex' alignItems='center' justifyContent='center'>
       <h3>Contact</h3>
       <form>
         <label htmlFor='name'>Name</label>
@@ -11,6 +13,6 @@ export default function Contact() {
         <textarea name='message' id='message' required />
         <button type='submit'>Send</button>
       </form>
-    </div>
+    </Box>
   );
 }

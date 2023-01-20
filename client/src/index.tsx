@@ -5,6 +5,9 @@ import App from './App';
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { ChakraProvider } from '@chakra-ui/react';
+
+import { myTheme } from './styles/theme';
 
 const queryClient = new QueryClient();
 
@@ -15,7 +18,9 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
-        <App />
+        <ChakraProvider theme={myTheme}>
+          <App />
+        </ChakraProvider>
       </RecoilRoot>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

@@ -8,6 +8,7 @@ import AppError from './utils/appError';
 import globalErrorHandler from './controllers/errorController';
 // import betterLogging from 'better-logging';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 //info Mounting the routes
 import boxerRouter from './routes/boxerRoutes';
@@ -20,10 +21,18 @@ const app = express();
 //info Security HTTP headers
 app.use(require('helmet')());
 // betterLogging(console);
-app.use(cors());
+app.use(
+  cors({
+    origin: 'http://127.0.0.1:3000',
+    credentials: true,
+  })
+);
 
 //info Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
+
+//info Cookie parser
+app.use(cookieParser());
 
 //info Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
@@ -55,6 +64,7 @@ if (process.env.NODE_ENV === 'development') {
 //note Middleware for testing purposes if needed
 app.use((req: Request, res: Response, next: NextFunction) => {
   // console.log(req.headers);
+  console.log('Cookie Parser', req.cookies);
   next();
 });
 
@@ -81,6 +91,6 @@ const port =
     : //info Development port
       config.app.portDev;
 app.listen(port, () => {
-  console.info(theme.info(`Server is running on http://localhost:${port}`));
+  console.info(theme.info(`Server is running on http://127.0.0.1:${port}`));
   connectDB();
 });

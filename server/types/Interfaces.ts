@@ -102,6 +102,7 @@ interface ICookie {
   expires?: Date;
   httpOnly: boolean;
   secure: boolean;
+  // sameSite: 'strict' | 'lax' | 'none';
 }
 
 export { IConfig, ITheme, IClub, IBoxer, ICoach, IFights, ICookie };

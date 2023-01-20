@@ -1,3 +1,4 @@
+import { Flex } from '@chakra-ui/react';
 import { useLocation, Link } from 'react-router-dom';
 
 export default function Breadcrumbs() {
@@ -15,5 +16,14 @@ export default function Breadcrumbs() {
         </div>
       );
     });
-  return <div className='breadcrumbs'>{crumbs}</div>;
+  return (
+    <Flex
+      flexDir='row'
+      gap='10px'
+      justifyContent='center'
+      mb='5px'
+      className='breadcrumbs'>
+      {crumbs}
+    </Flex>
+  );
 }
