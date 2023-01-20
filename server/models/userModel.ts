@@ -58,6 +58,7 @@ const CoachSchema = new mongoose.Schema<ICoach>({
   accountConfirmed: {
     type: Boolean,
     default: false,
+    select: false,
   },
   passwordChangedAt: Date,
   passwordResetToken: String,
@@ -96,6 +97,11 @@ CoachSchema.pre('save', function (next) {
 
 CoachSchema.pre(/^find/, function (next) {
   this.find({ active: { $ne: false } });
+  next();
+});
+
+CoachSchema.pre(/^find/, function (next) {
+  this.populate({ path: 'club', select: '-__v' }).select('-__v');
   next();
 });
 

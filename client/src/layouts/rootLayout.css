@@ -1,4 +1,4 @@
-.root-layouts {
+/* .root-layouts {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -32,9 +32,9 @@ header nav a.active {
   color: royalblue;
   background-color: #2b3452;
   border-radius: 10px;
-}
+} */
 
-.breadcrumbs {
+/* .breadcrumbs {
   max-width: 1200px;
   padding: 0.5rem;
 }
@@ -50,5 +50,5 @@ header nav a.active {
   display: none;
 }
 .breadcrumbs .crumb a {
-  color: #ddd;
-}
+  color: rgb(39, 39, 39);
+/* } */

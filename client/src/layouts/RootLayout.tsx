@@ -1,24 +1,34 @@
 import './rootLayout.css';
+
+import { Heading, Spacer, Box } from '@chakra-ui/react';
 import { NavLink, Outlet } from 'react-router-dom';
 import Breadcrumbs from '../components/Breadcrumbs';
 
+import { extendTheme } from '@chakra-ui/react';
+import { myTheme } from '../styles/theme';
+
 export default function RootLayout() {
+  console.log(myTheme);
   return (
-    <div className='root-layouts'>
-      <header>
-        <nav>
-          <h1>Boxer Connect</h1>
-          <NavLink to='/'>Home</NavLink>
-          <NavLink to='signup'>SignUp</NavLink>
-          <NavLink to='login'>Login</NavLink>
-          <NavLink to='/help'>Help</NavLink>
-          <NavLink to='/about'>About</NavLink>
-        </nav>
+    <Box className='root-layouts'>
+      <Box as='header'>
+        <Box as='nav' display='flex' alignItems='center'>
+          <Heading as='h1'>Boxer-Connect</Heading>
+          <Spacer />
+          <Box as='div' className='nav-menu' display='flex' gap='5px'>
+            <NavLink to='/'>Home</NavLink>
+            <NavLink to='signup'>SignUp</NavLink>
+            <NavLink to='login'>Login</NavLink>
+            <NavLink to='/help'>Help</NavLink>
+            <NavLink to='/about'>About</NavLink>
+          </Box>
+        </Box>
         <Breadcrumbs />
-      </header>
+      </Box>
+
       <main>
         <Outlet />
       </main>
-    </div>
+    </Box>
   );
 }

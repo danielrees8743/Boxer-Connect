@@ -26,7 +26,7 @@ const cookieOptions: ICookie = {
     Number(<number>Date.now()) +
       <any>config.jwt.cookieExpiresIn * 24 * 60 * 60 * 1000
   ),
-  httpOnly: true,
+  httpOnly: process.env.NODE_ENV === 'production',
   secure: false,
 };
 if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
@@ -39,43 +39,52 @@ const createSendToken = (
 ): void => {
   const token = getAuthToken(user.id);
 
+  //! Figure out why this is not working and how to fix it!
+  //! This should show in the cookies tab in the application tab in the browser
+  //info Set cookie
   res.cookie('jwt', token, cookieOptions);
 
   //info Remove password from output
   user.password = undefined;
-  res.status(statusCode).json({
-    status: 'success',
-    token,
-    data: {
-      user,
-    },
-  });
+  res.status(statusCode).json({ status: 'success', user, token });
 };
 
 //info Signup user
 export const signup = catchErrorsAsync(
   async (req: Request, res: Response): Promise<void> => {
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      passwordConfirm,
+      contactNumber,
+      club,
+      passwordChangedAt,
+      active,
+    } = req.body;
+
     const newUser = await User.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: req.body.password,
-      passwordConfirm: req.body.passwordConfirm,
-      contactNumber: req.body.contactNumber,
-      club: req.body.club,
-      passwordChangedAt: req.body.passwordChangedAt,
-      active: req.body.active,
+      firstName,
+      lastName,
+      email,
+      password,
+      passwordConfirm,
+      contactNumber,
+      club,
+      passwordChangedAt,
+      active,
     });
 
     createSendToken(newUser, 201, res);
 
     //info Send confirmation email on sign up
-    const url = `${req.protocol}://${req.get('host')}/me`;
-    await sendEmail({
-      email: newUser.email,
-      subject: 'Welcome to Boxer-Connect',
-      message: `Please click the link below to confirm your email address: ${url}`,
-    });
+    // const url = `${req.protocol}://${req.get('host')}/me`;
+    // await sendEmail({
+    //   email: newUser.email,
+    //   subject: 'Welcome to Boxer-Connect',
+    //   message: `Please click the link below to confirm your email address: ${url}`,
+    // });
   }
 );
 
@@ -89,6 +98,8 @@ export const login = catchErrorsAsync(
       return next(new AppError('Please provide email and password!', 400));
     }
     const user = await User.findOne({ email }).select('+password');
+    console.log('Email: ', email, 'Password: ', password);
+    console.log('User', user);
 
     //- Check if user exists && password is correct
     if (!user || !(await user.correctPassword(password, user.password))) {
@@ -171,7 +182,10 @@ export const restrictTo = (...roles: string[]) => {
   return (req: AuthRequest, res: Response, next: NextFunction): void => {
     if (req.user?.role && !roles.includes(req.user.role)) {
       return next(
-        new AppError('You do not have permission to perform this action', 403)
+        new AppError(
+          'You are not authorized to do this, Please see the Head-Coach',
+          403
+        )
       );
     }
     next();
@@ -299,3 +313,6 @@ export default {
   resetPassword,
   updatePassword,
 };
+function next(arg0: AppError): void | PromiseLike<void> {
+  throw new Error('Function not implemented.');
+}
