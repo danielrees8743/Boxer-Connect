@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "server": "nodemon ./server/index.ts",
-    "client": "npm start --prefix client",
+    "client": "npm run dev --prefix client",
     "dev": "concurrently \"npm run server\"  \"npm run client\"",
     "prod": "SET NODE_ENV=production&&nodemon ./server/index.ts",
     "build": "tsc"
