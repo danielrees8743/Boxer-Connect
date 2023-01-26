@@ -7,6 +7,7 @@ import sendEmail from '../utils/email';
 import User from '../models/userModel';
 import promisify from 'promisify-node';
 import { ICoach, ICookie } from '../types/Interfaces';
+import Club from '../models/clubModel';
 import crypto from 'crypto';
 
 interface AuthRequest extends Request {
@@ -91,18 +92,28 @@ export const signup = catchErrorsAsync(
 //info Login user
 export const login = catchErrorsAsync(
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    const { email, password } = req.body;
+    const { email, password, club } = req.body;
+    console.log('Input club', club);
+
+    const clubRef = await Club.findOne({ _id: club });
 
     //- Check if email and password exist
     if (!email || !password) {
       return next(new AppError('Please provide email and password!', 400));
     }
     const user = await User.findOne({ email }).select('+password');
-    console.log('Email: ', email, 'Password: ', password);
-    console.log('User', user);
+    // console.log('Email: ', email, 'Password: ', password);
+    // console.log('User', user);
+    // console.log('ClubId: ', club);
+    // console.log('ClubRef: ', clubRef);
 
     //- Check if user exists && password is correct
-    if (!user || !(await user.correctPassword(password, user.password))) {
+    if (
+      !user ||
+      !(await user.correctPassword(password, user.password))
+      // ||
+      // user.club !== clubRef?._id
+    ) {
       return next(
         new AppError('Incorrect login details, Please try again', 401)
       );
@@ -136,8 +147,10 @@ export const protect = catchErrorsAsync(
       req.headers.authorization &&
       req.headers.authorization?.startsWith('Bearer')
     ) {
+      token = req.headers.authorization?.split(' ')[1];
+    } else if (req.cookies.jwt) {
+      token = req.cookies.jwt;
     }
-    token = req.headers.authorization?.split(' ')[1];
 
     if (!token) {
       return next(

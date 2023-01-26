@@ -3,7 +3,7 @@ import { extendTheme } from '@chakra-ui/react';
 const styles = extendTheme({
   colors: {
     primary: '#232526',
-    secondary: '#4F5152',
+    secondary: '#353637',
     tertiary: '#4B4D4E',
     brand: {
       50: '#E5F5F6',
@@ -16,6 +16,18 @@ const styles = extendTheme({
       700: '#2C93B2',
       800: '#1480A1',
       900: '#006D90',
+    },
+  },
+  fonts: {
+    heading: 'Bahnschrift',
+    body: 'Bahnschrift',
+  },
+  styles: {
+    global: {
+      body: {
+        bg: 'primary',
+        color: 'brand.50',
+      },
     },
   },
 });
