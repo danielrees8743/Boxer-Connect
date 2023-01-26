@@ -1,18 +1,30 @@
 import {
-  Heading,
-  Box,
-  Button,
+  CSSReset,
   VStack,
   HStack,
-  Spacer,
-  CSSReset,
+  Heading,
+  Box,
   Image,
+  Button,
 } from '@chakra-ui/react';
-import { NavLink, Outlet } from 'react-router-dom';
-import Footer from '../components/homeComponents/Footer';
-import LoginDraw from '../components/homeComponents/LoginComponent';
+import { LockIcon } from '@chakra-ui/icons';
 
-const RootLayout = () => {
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import Footer from '../components/homeComponents/Footer';
+
+import { logout } from '../hooks/useAPIFeatures';
+
+export default function AccountLayout() {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    //todo: temporary fix for logout and redirect to home page
+    setTimeout(() => {
+      navigate('/');
+    }, 1000);
+  };
+
   return (
     <>
       <CSSReset />
@@ -34,13 +46,22 @@ const RootLayout = () => {
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='about'>About</NavLink>
                 <NavLink to='contact'>Contact</NavLink>
-                <LoginDraw />
+                <Button
+                  leftIcon={<LockIcon />}
+                  bg='brand.400'
+                  color='secondary'
+                  _hover={{ bg: 'brand.brand.600', color: 'brand.50' }}
+                  onClick={() => {
+                    handleLogout();
+                  }}>
+                  Logout
+                </Button>
               </HStack>
             </Box>
           </HStack>
         </VStack>
       </Box>
-      {/* Breadcrumb */}
+
       <Box as='main'>
         <Outlet />
       </Box>
@@ -51,6 +72,4 @@ const RootLayout = () => {
       </Box>
     </>
   );
-};
-
-export default RootLayout;
+}

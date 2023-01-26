@@ -31,3 +31,10 @@ export const postLogin = async (data: object): Promise<AxiosResponse> => {
   );
   return res.data;
 };
+
+export const logout = async (): Promise<AxiosResponse> => {
+  const res = await axios.get('http://localhost:8001/api/users/logout', {
+    withCredentials: true,
+  });
+  return res.data;
+};

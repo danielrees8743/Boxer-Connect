@@ -1,0 +1,123 @@
+Date : 2023-01-25 17:31:28
+Directory : c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)
+Total : 63 files,  43200 codes, 271 comments, 292 blanks, all 43763 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          5 |     40,848 |          0 |          5 |     40,853 |
+| TypeScript         |         23 |      1,202 |        127 |        189 |      1,518 |
+| TypeScript React   |         15 |        617 |         24 |         67 |        708 |
+| JavaScript         |         14 |        480 |         39 |         14 |        533 |
+| JSON with Comments |          2 |         39 |         81 |         10 |        130 |
+| HTML               |          1 |         13 |          0 |          5 |         18 |
+| XML                |          1 |          1 |          0 |          0 |          1 |
+| Markdown           |          1 |          0 |          0 |          1 |          1 |
+| CSS                |          1 |          0 |          0 |          1 |          1 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                   |         63 |     43,200 |        271 |        292 |     43,763 |
+| . (Files)                                                                                                           |          4 |      7,184 |         81 |         12 |      7,277 |
+| client                                                                                                              |         24 |     34,339 |         26 |         80 |     34,445 |
+| client (Files)                                                                                                      |          6 |     33,721 |          1 |         11 |     33,733 |
+| client\public                                                                                                       |          1 |          1 |          0 |          0 |          1 |
+| client\src                                                                                                          |         17 |        617 |         25 |         69 |        711 |
+| client\src (Files)                                                                                                  |          3 |         57 |          3 |         15 |         75 |
+| client\src\components                                                                                               |          3 |        263 |         13 |         21 |        297 |
+| client\src\hooks                                                                                                    |          1 |         36 |          0 |          5 |         41 |
+| client\src\layouts                                                                                                  |          4 |        127 |          2 |         13 |        142 |
+| client\src\pages                                                                                                    |          2 |         42 |          3 |          3 |         48 |
+| client\src\theme                                                                                                    |          4 |         92 |          4 |         12 |        108 |
+| client\src\theme (Files)                                                                                            |          3 |         44 |          0 |          8 |         52 |
+| client\src\theme\components                                                                                         |          1 |         48 |          4 |          4 |         56 |
+| dist                                                                                                                |         14 |        480 |         39 |         14 |        533 |
+| dist (Files)                                                                                                        |          1 |         46 |          4 |          1 |         51 |
+| dist\Interfaces                                                                                                     |          1 |          2 |          0 |          1 |          3 |
+| dist\config                                                                                                         |          2 |         81 |          2 |          2 |         85 |
+| dist\controllers                                                                                                    |          3 |        159 |         32 |          3 |        194 |
+| dist\models                                                                                                         |          3 |        158 |          1 |          3 |        162 |
+| dist\routes                                                                                                         |          4 |         34 |          0 |          4 |         38 |
+| server                                                                                                              |         21 |      1,197 |        125 |        186 |      1,508 |
+| server (Files)                                                                                                      |          1 |         61 |         19 |         18 |         98 |
+| server\config                                                                                                       |          2 |         51 |          4 |         12 |         67 |
+| server\controllers                                                                                                  |          5 |        527 |         95 |         83 |        705 |
+| server\models                                                                                                       |          4 |        297 |          4 |         31 |        332 |
+| server\routes                                                                                                       |          3 |         70 |          0 |         17 |         87 |
+| server\types                                                                                                        |          2 |        107 |          3 |         11 |        121 |
+| server\utils                                                                                                        |          4 |         84 |          0 |         14 |         98 |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                            | language           | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\README.md                                | Markdown           |          0 |          0 |          1 |          1 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\index.html                        | HTML               |         13 |          0 |          5 |         18 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\package-lock.json                 | JSON               |     33,629 |          0 |          1 |     33,630 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\package.json                      | JSON               |         44 |          0 |          1 |         45 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\public\vite.svg                   | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\App.tsx                       | TypeScript React   |         38 |          2 |          8 |         48 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\components\Carousel.tsx       | TypeScript React   |         72 |          8 |          6 |         86 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\components\Footer.tsx         | TypeScript React   |         51 |          0 |          2 |         53 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\components\LoginComponent.tsx | TypeScript React   |        140 |          5 |         13 |        158 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\hooks\useAPIFeatures.tsx      | TypeScript React   |         36 |          0 |          5 |         41 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\layouts\AboutLayout.tsx       | TypeScript React   |         10 |          0 |          2 |         12 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\layouts\AccountLayout.tsx     | TypeScript React   |         60 |          1 |          5 |         66 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\layouts\ContactLayout.tsx     | TypeScript React   |          5 |          0 |          2 |          7 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\layouts\RootLayout.tsx        | TypeScript React   |         52 |          1 |          4 |         57 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\main.tsx                      | TypeScript React   |         19 |          0 |          6 |         25 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\pages\Faq.tsx                 | TypeScript React   |          3 |          0 |          1 |          4 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\pages\Home.tsx                | TypeScript React   |         39 |          3 |          2 |         44 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\theme\components\Buttons.tsx  | TypeScript React   |         48 |          4 |          4 |         56 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\theme\index.tsx               | TypeScript React   |         11 |          0 |          5 |         16 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\theme\styles.css              | CSS                |          0 |          0 |          1 |          1 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\theme\styles.tsx              | TypeScript React   |         33 |          0 |          2 |         35 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\vite-env.d.ts                 | TypeScript         |          0 |          1 |          1 |          2 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\tsconfig.json                     | JSON with Comments |         21 |          0 |          1 |         22 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\tsconfig.node.json                | JSON               |          9 |          0 |          1 |         10 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\vite.config.ts                    | TypeScript         |          5 |          1 |          2 |          8 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\Interfaces\Interfaces.js            | JavaScript         |          2 |          0 |          1 |          3 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\config\config.js                    | JavaScript         |         27 |          1 |          1 |         29 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\config\db.js                        | JavaScript         |         54 |          1 |          1 |         56 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\controllers\authController.js       | JavaScript         |          2 |          0 |          1 |          3 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\controllers\boxerController.js      | JavaScript         |         77 |         15 |          1 |         93 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\controllers\clubController.js       | JavaScript         |         80 |         17 |          1 |         98 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\index.js                            | JavaScript         |         46 |          4 |          1 |         51 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\models\boxerModel.js                | JavaScript         |        120 |          1 |          1 |        122 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\models\clubModel.js                 | JavaScript         |         36 |          0 |          1 |         37 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\models\userModel.js                 | JavaScript         |          2 |          0 |          1 |          3 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\routes\authRoutes.js                | JavaScript         |          2 |          0 |          1 |          3 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\routes\boxerRoutes.js               | JavaScript         |         15 |          0 |          1 |         16 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\routes\clubRoutes.js                | JavaScript         |         15 |          0 |          1 |         16 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\routes\userRoutes.js                | JavaScript         |          2 |          0 |          1 |          3 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\package-lock.json                        | JSON               |      7,103 |          0 |          1 |      7,104 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\package.json                             | JSON               |         63 |          0 |          1 |         64 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\config\config.ts                  | TypeScript         |         37 |          1 |          6 |         44 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\config\db.ts                      | TypeScript         |         14 |          3 |          6 |         23 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\controllers\authController.ts     | TypeScript         |        238 |         39 |         42 |        319 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\controllers\boxerController.ts    | TypeScript         |         65 |         15 |          8 |         88 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\controllers\clubController.ts     | TypeScript         |         72 |         17 |          9 |         98 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\controllers\errorController.ts    | TypeScript         |         62 |          0 |         11 |         73 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\controllers\userController.ts     | TypeScript         |         90 |         24 |         13 |        127 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\index.ts                          | TypeScript         |         61 |         19 |         18 |         98 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\models\boxerModel.ts              | TypeScript         |         87 |          0 |          8 |         95 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\models\clubModel.ts               | TypeScript         |         32 |          0 |          4 |         36 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\models\fightsModel.ts             | TypeScript         |         55 |          0 |          4 |         59 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\models\userModel.ts               | TypeScript         |        123 |          4 |         15 |        142 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\routes\boxerRoutes.ts             | TypeScript         |         34 |          0 |          5 |         39 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\routes\clubRoutes.ts              | TypeScript         |         10 |          0 |          5 |         15 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\routes\userRoutes.ts              | TypeScript         |         26 |          0 |          7 |         33 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\types\Interfaces.ts               | TypeScript         |         98 |          3 |          8 |        109 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\types\interface.d.ts              | TypeScript         |          9 |          0 |          3 |         12 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\utils\apiResponse.ts              | TypeScript         |         39 |          0 |          5 |         44 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\utils\appError.ts                 | TypeScript         |         15 |          0 |          4 |         19 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\utils\catchErrorsAsync.ts         | TypeScript         |          6 |          0 |          2 |          8 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\utils\email.ts                    | TypeScript         |         24 |          0 |          3 |         27 |
+| c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\tsconfig.json                            | JSON with Comments |         18 |         81 |          9 |        108 |
+| Total                                                                                                               |                    |     43,200 |        271 |        292 |     43,763 |
++---------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

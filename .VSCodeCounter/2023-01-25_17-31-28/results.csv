@@ -1,0 +1,65 @@
+"filename", "language", "JSON with Comments", "Markdown", "JSON", "HTML", "TypeScript", "TypeScript React", "XML", "CSS", "JavaScript", "comment", "blank", "total"
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\README.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\index.html", "HTML", 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 5, 18
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\package-lock.json", "JSON", 0, 0, 33629, 0, 0, 0, 0, 0, 0, 0, 1, 33630
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\package.json", "JSON", 0, 0, 44, 0, 0, 0, 0, 0, 0, 0, 1, 45
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\public\vite.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\App.tsx", "TypeScript React", 0, 0, 0, 0, 0, 38, 0, 0, 0, 2, 8, 48
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\components\Carousel.tsx", "TypeScript React", 0, 0, 0, 0, 0, 72, 0, 0, 0, 8, 6, 86
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\components\Footer.tsx", "TypeScript React", 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 2, 53
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\components\LoginComponent.tsx", "TypeScript React", 0, 0, 0, 0, 0, 140, 0, 0, 0, 5, 13, 158
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\hooks\useAPIFeatures.tsx", "TypeScript React", 0, 0, 0, 0, 0, 36, 0, 0, 0, 0, 5, 41
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\layouts\AboutLayout.tsx", "TypeScript React", 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 2, 12
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\layouts\AccountLayout.tsx", "TypeScript React", 0, 0, 0, 0, 0, 60, 0, 0, 0, 1, 5, 66
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\layouts\ContactLayout.tsx", "TypeScript React", 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 2, 7
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\layouts\RootLayout.tsx", "TypeScript React", 0, 0, 0, 0, 0, 52, 0, 0, 0, 1, 4, 57
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\main.tsx", "TypeScript React", 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 6, 25
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\pages\Faq.tsx", "TypeScript React", 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1, 4
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\pages\Home.tsx", "TypeScript React", 0, 0, 0, 0, 0, 39, 0, 0, 0, 3, 2, 44
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\theme\components\Buttons.tsx", "TypeScript React", 0, 0, 0, 0, 0, 48, 0, 0, 0, 4, 4, 56
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\theme\index.tsx", "TypeScript React", 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 5, 16
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\theme\styles.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\theme\styles.tsx", "TypeScript React", 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 2, 35
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\src\vite-env.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\tsconfig.json", "JSON with Comments", 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 22
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\tsconfig.node.json", "JSON", 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\client\vite.config.ts", "TypeScript", 0, 0, 0, 0, 5, 0, 0, 0, 0, 1, 2, 8
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\Interfaces\Interfaces.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 3
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\config\config.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 27, 1, 1, 29
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\config\db.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 54, 1, 1, 56
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\controllers\authController.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 3
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\controllers\boxerController.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 77, 15, 1, 93
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\controllers\clubController.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 80, 17, 1, 98
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\index.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 46, 4, 1, 51
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\models\boxerModel.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 120, 1, 1, 122
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\models\clubModel.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 1, 37
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\models\userModel.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 3
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\routes\authRoutes.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 3
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\routes\boxerRoutes.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 1, 16
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\routes\clubRoutes.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 1, 16
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\dist\routes\userRoutes.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 3
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\package-lock.json", "JSON", 0, 0, 7103, 0, 0, 0, 0, 0, 0, 0, 1, 7104
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\package.json", "JSON", 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 1, 64
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\config\config.ts", "TypeScript", 0, 0, 0, 0, 37, 0, 0, 0, 0, 1, 6, 44
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\config\db.ts", "TypeScript", 0, 0, 0, 0, 14, 0, 0, 0, 0, 3, 6, 23
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\controllers\authController.ts", "TypeScript", 0, 0, 0, 0, 238, 0, 0, 0, 0, 39, 42, 319
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\controllers\boxerController.ts", "TypeScript", 0, 0, 0, 0, 65, 0, 0, 0, 0, 15, 8, 88
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\controllers\clubController.ts", "TypeScript", 0, 0, 0, 0, 72, 0, 0, 0, 0, 17, 9, 98
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\controllers\errorController.ts", "TypeScript", 0, 0, 0, 0, 62, 0, 0, 0, 0, 0, 11, 73
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\controllers\userController.ts", "TypeScript", 0, 0, 0, 0, 90, 0, 0, 0, 0, 24, 13, 127
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\index.ts", "TypeScript", 0, 0, 0, 0, 61, 0, 0, 0, 0, 19, 18, 98
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\models\boxerModel.ts", "TypeScript", 0, 0, 0, 0, 87, 0, 0, 0, 0, 0, 8, 95
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\models\clubModel.ts", "TypeScript", 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 4, 36
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\models\fightsModel.ts", "TypeScript", 0, 0, 0, 0, 55, 0, 0, 0, 0, 0, 4, 59
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\models\userModel.ts", "TypeScript", 0, 0, 0, 0, 123, 0, 0, 0, 0, 4, 15, 142
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\routes\boxerRoutes.ts", "TypeScript", 0, 0, 0, 0, 34, 0, 0, 0, 0, 0, 5, 39
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\routes\clubRoutes.ts", "TypeScript", 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 5, 15
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\routes\userRoutes.ts", "TypeScript", 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 7, 33
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\types\Interfaces.ts", "TypeScript", 0, 0, 0, 0, 98, 0, 0, 0, 0, 3, 8, 109
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\types\interface.d.ts", "TypeScript", 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 3, 12
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\utils\apiResponse.ts", "TypeScript", 0, 0, 0, 0, 39, 0, 0, 0, 0, 0, 5, 44
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\utils\appError.ts", "TypeScript", 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 4, 19
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\utils\catchErrorsAsync.ts", "TypeScript", 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 2, 8
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\server\utils\email.ts", "TypeScript", 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 3, 27
+"c:\Users\danie\Desktop\Master School\Projects\Boxer-Connect(Final Project)\tsconfig.json", "JSON with Comments", 18, 0, 0, 0, 0, 0, 0, 0, 0, 81, 9, 108
+"Total", "-", 39, 0, 40848, 13, 1202, 617, 1, 0, 480, 271, 292, 43763

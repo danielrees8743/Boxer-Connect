@@ -14,12 +14,18 @@ import {
   Input,
   Select,
   Stack,
-  Textarea,
   useDisclosure,
   useToast,
 } from '@chakra-ui/react';
 import { UnlockIcon } from '@chakra-ui/icons';
-import { fetchClubs, postLogin } from '../hooks/useAPIFeatures';
+import { fetchClubs, postLogin } from '../../hooks/useAPIFeatures';
+
+import { useNavigate } from 'react-router-dom';
+
+//* State Management
+import { useRecoilValue } from 'recoil';
+import { authState } from '../../state/recoil_state';
+import { AuthProvider } from '../../state/recoil_state';
 
 interface Club {
   _id: number;
@@ -33,13 +39,20 @@ interface IFormInput {
 }
 
 function LoginDraw() {
+  const navigate = useNavigate();
+
+  const setAuth = useRecoilValue(authState);
   const { register, handleSubmit, reset } = useForm<IFormInput>();
   const { isOpen, onOpen, onClose } = useDisclosure();
   //todo put the toast in the component
   const toast = useToast();
 
   //todo Figure Out the Error, how to return the error message from axios
-  const { data, isLoading, isError, error } = useQuery(['clubs'], fetchClubs);
+  const { data, isLoading, isError, error } = useQuery(['clubs'], fetchClubs, {
+    retry: 3,
+    refetchOnWindowFocus: false,
+    staleTime: 50000,
+  });
 
   const userLogin = useMutation(postLogin, {
     onSuccess: (data) => {
@@ -51,6 +64,7 @@ function LoginDraw() {
     console.log(data);
     userLogin.mutate(data, {
       onSuccess: (data) => {
+        console.log(data);
         isOpen && onClose();
         reset();
         toast({
@@ -61,6 +75,7 @@ function LoginDraw() {
           isClosable: true,
           position: 'top',
         });
+        navigate('/account');
       },
       onError: (error) => {
         console.log(error);
