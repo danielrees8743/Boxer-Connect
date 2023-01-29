@@ -26,7 +26,12 @@ const RootLayout = () => {
               h='max-content'
               color='brand.400'
               p='10px'>
-              <Image src='./src/assets/Logo.png' alt='boxer-connect logo' />
+              <Image
+                src='./src/assets/logo-no-background.svg'
+                alt='boxer-connect logo'
+                h='4rem'
+                m='0.5rem'
+              />
             </Heading>
 
             <Box as='nav'>

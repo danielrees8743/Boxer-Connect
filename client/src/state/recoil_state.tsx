@@ -1,31 +1,49 @@
-import { atom, useRecoilState } from 'recoil';
+import { useEffect } from 'react';
+import {
+  atom,
+  useRecoilCallback,
+  useRecoilSnapshot,
+  useRecoilValue,
+} from 'recoil';
 
-const authState = atom({
+// export function DebugButton() {
+//   const onClick = useRecoilCallback(
+//     ({ snapshot }) =>
+//       async () => {
+//         console.debug('Atom values:');
+//         for (const node of snapshot.getNodes_UNSTABLE()) {
+//           const value = await snapshot.getPromise(node);
+//           console.debug(node.key, value);
+//         }
+//       },
+//     []
+//   );
+
+//   return <button onClick={onClick}>Dump State</button>;
+// }
+
+export const userAuthState = atom({
   key: 'authState',
   default: {
     isAuthenticated: false,
-    user: null,
+    user: {
+      _id: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      contactNumber: '',
+      club: {
+        _id: '',
+        name: '',
+        division: '',
+        clubId: '',
+        clubID: '',
+        email: '',
+      },
+      role: '',
+      token: '',
+    },
   },
 });
 
-function AuthProvider() {
-  const [auth, setAuth] = useRecoilState(authState);
-
-  function login(user: any) {
-    setAuth({
-      isAuthenticated: true,
-      user,
-    });
-  }
-
-  function logout() {
-    setAuth({
-      isAuthenticated: false,
-      user: null,
-    });
-  }
-  console.log(authState);
-  return { auth, login, logout };
-}
-
-export { authState, AuthProvider };
+export default userAuthState;

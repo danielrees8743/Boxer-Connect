@@ -13,14 +13,20 @@ import { NavLink } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <Box as='footer' bg='tertiary'>
+    <Box as='footer' bg='secondary'>
       <SimpleGrid
         columns={2}
         w='100vw'
         alignItems='center'
         justifyItems='center'>
         <Box h='100px'>
-          <Image src='./src/assets/Logo.png' alt='Boxer' ml='20px' h='5rem' />
+          <Image
+            src='./src/assets/logo-no-background.svg'
+            alt='Boxer'
+            ml='20px'
+            p='10px'
+            h='4rem'
+          />
         </Box>
         <Box my={10}>
           <HStack>

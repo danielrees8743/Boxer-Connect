@@ -19,13 +19,11 @@ import {
 } from '@chakra-ui/react';
 import { UnlockIcon } from '@chakra-ui/icons';
 import { fetchClubs, postLogin } from '../../hooks/useAPIFeatures';
-
 import { useNavigate } from 'react-router-dom';
 
 //* State Management
-import { useRecoilValue } from 'recoil';
-import { authState } from '../../state/recoil_state';
-import { AuthProvider } from '../../state/recoil_state';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { userAuthState } from '../../state/recoil_state';
 
 interface Club {
   _id: number;
@@ -39,9 +37,9 @@ interface IFormInput {
 }
 
 function LoginDraw() {
-  const navigate = useNavigate();
+  const [userAuth, setUserAuth] = useRecoilState(userAuthState);
 
-  const setAuth = useRecoilValue(authState);
+  const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm<IFormInput>();
   const { isOpen, onOpen, onClose } = useDisclosure();
   //todo put the toast in the component
@@ -54,17 +52,13 @@ function LoginDraw() {
     staleTime: 50000,
   });
 
-  const userLogin = useMutation(postLogin, {
-    onSuccess: (data) => {
-      console.log(data);
-    },
-  });
+  const userLogin = useMutation(postLogin);
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
     userLogin.mutate(data, {
       onSuccess: (data) => {
-        console.log(data);
+        console.log('Login', data);
+
         isOpen && onClose();
         reset();
         toast({
@@ -75,6 +69,12 @@ function LoginDraw() {
           isClosable: true,
           position: 'top',
         });
+        setUserAuth({
+          isAuthenticated: true,
+          user: { ...data },
+        });
+
+        //todo create Private Route for authenticated users
         navigate('/account');
       },
       onError: (error) => {
@@ -108,10 +108,12 @@ function LoginDraw() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <DrawerCloseButton />
             <DrawerHeader borderBottomWidth='1px'>Login</DrawerHeader>
-
             <DrawerBody>
               <Stack spacing='24px'>
                 <Box>
+                  {/*//! Need to figure out global state */}
+                  {/* {userAuth.isAuthenticated && <p>Authenticated</p>}
+                  {!userAuth.isAuthenticated && <p>Not Authenticated</p>} */}
                   <FormLabel htmlFor='username'>Email</FormLabel>
                   <Input
                     {...register('email')}

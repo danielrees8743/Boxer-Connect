@@ -4,7 +4,7 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
-  // Redirect,
+  redirect,
 } from 'react-router-dom';
 
 //* Layouts
@@ -16,20 +16,22 @@ import AccountLayout from './layouts/AccountLayout';
 //* Pages
 import Home from './pages/Home';
 import Faq from './pages/Faq';
-import { useRecoilValue } from 'recoil';
-import { AuthProvider, authState } from './state/recoil_state';
 import AccountHome from './pages/accountPages/AccountHome';
 
-// const PrivateRoute = ({ component: Component, ...rest }) => {
-//   const auth = useRecoilValue(authState);
+//* State
+import { useRecoilValue } from 'recoil';
+import { userAuthState } from './state/recoil_state';
+
+// const PrivateRoute = ({ Component  , ...rest }) => {
+//   const auth = useRecoilValue(userAuthState);
 //   return (
 //     <Route
 //       {...rest}
-//       render: any={(...props: any) =>
+//       render: any ={(...props: any) =>
 //         auth.isAuthenticated === true ? (
 //           <Component {...props} />
 //         ) : (
-//           <Redirect to='/login' />
+//           redirect('/login')
 //         )
 //       }
 //     />
@@ -52,9 +54,9 @@ const router = createBrowserRouter(
         <Route path='*' element={<h1>404</h1>} />
       </Route>
       <Route path='/account' element={<AccountLayout />}>
-        <Route path='' element={<AccountHome />} />
+        <Route index element={<AccountHome />} />
       </Route>
-      {/* <PrivateRoute path='/account' component={<AccountLayout />} /> */}
+      {/* <PrivateRoute path='/account'  Component={<AboutLayout/>} /> */}
     </>
   )
 );
