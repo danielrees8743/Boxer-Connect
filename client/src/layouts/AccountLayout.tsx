@@ -14,7 +14,12 @@ import Footer from '../components/homeComponents/Footer';
 
 import { logout } from '../hooks/useAPIFeatures';
 
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { userAuthState } from '../state/recoil_state';
+
 export default function AccountLayout() {
+  const userAuth = useRecoilValue(userAuthState);
+
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -38,14 +43,31 @@ export default function AccountLayout() {
               h='max-content'
               color='brand.400'
               p='10px'>
-              <Image src='./src/assets/Logo.png' alt='boxer-connect logo' />
+              <Image
+                h='4rem'
+                m='0.5rem'
+                src='./src/assets/logo-no-background.svg'
+                alt='boxer-connect logo'
+              />
             </Heading>
 
             <Box as='nav'>
               <HStack className='nav-menu' mr='30px' gap='10px'>
-                <NavLink to='/'>Home</NavLink>
+                {/*//! Global Auth need sorting  */}
+                {/* {console.log(userAuth.user)} */}
+                {userAuth.user && (
+                  <Heading
+                    fontSize='2xl'
+                    as='h2'
+                    color='brand.500'
+                    p='10px'
+                    mr='20px'>
+                    Welcome {userAuth && userAuth.user.firstName}
+                  </Heading>
+                )}
+                {/* <NavLink to='/'>Home</NavLink>
                 <NavLink to='about'>About</NavLink>
-                <NavLink to='contact'>Contact</NavLink>
+                <NavLink to='contact'>Contact</NavLink> */}
                 <Button
                   leftIcon={<LockIcon />}
                   bg='brand.400'

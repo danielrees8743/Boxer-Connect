@@ -1,0 +1,21 @@
+#particle-slider {
+  background-color: #4b4d4e;
+  width: 75%;
+  height: 75%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.slides > .dg {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  #particle-slider {
+    width: 100%;
+    height: 100%;
+  }
+  .dg {
+    display: block;
+  }
+}
