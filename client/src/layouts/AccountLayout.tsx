@@ -89,7 +89,7 @@ export default function AccountLayout() {
       </Box>
       <Box>
         <HStack as='footer' bg='primary' w='100vw'>
-          <Footer />
+          {/* <Footer /> */}
         </HStack>
       </Box>
     </>
