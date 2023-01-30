@@ -17,8 +17,8 @@ const RootLayout = () => {
     <>
       <CSSReset />
       <Box className='root-layouts' h='100hv'>
-        <VStack as='header' bg='primary'>
-          <HStack className='logo' w='100vw' justifyContent='space-around'>
+        <VStack as='header' bg='primary' border='1px solid red'>
+          <HStack className='logo' justifyContent='space-around' w='100%'>
             <Heading
               fontSize='5xl'
               as='h1'
@@ -45,15 +45,8 @@ const RootLayout = () => {
           </HStack>
         </VStack>
       </Box>
-      {/* Breadcrumb */}
-      <Box as='main'>
-        <Outlet />
-      </Box>
-      <Box>
-        <HStack as='footer' bg='primary' w='100vw'>
-          <Footer />
-        </HStack>
-      </Box>
+      <Outlet />
+      <Footer />
     </>
   );
 };

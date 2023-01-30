@@ -10,8 +10,8 @@ import {
 
 export default function Motivation() {
   return (
-    <Box h='max-content' bg='secondary'>
-      <Card w={300} border='1px solid gray.500'>
+    <Box h='max-content' bg='secondary' my='25px'>
+      <Card w={300} shadow='dark-lg'>
         <CardHeader>Motivation</CardHeader>
         <CardBody>
           <Text>

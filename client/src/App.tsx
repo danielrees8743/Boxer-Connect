@@ -22,22 +22,6 @@ import AccountHome from './pages/accountPages/AccountHome';
 import { useRecoilValue } from 'recoil';
 import { userAuthState } from './state/recoil_state';
 
-// const PrivateRoute = ({ Component  , ...rest }) => {
-//   const auth = useRecoilValue(userAuthState);
-//   return (
-//     <Route
-//       {...rest}
-//       render: any ={(...props: any) =>
-//         auth.isAuthenticated === true ? (
-//           <Component {...props} />
-//         ) : (
-//           redirect('/login')
-//         )
-//       }
-//     />
-//   );
-// };
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -53,10 +37,10 @@ const router = createBrowserRouter(
 
         <Route path='*' element={<h1>404</h1>} />
       </Route>
+
       <Route path='/account' element={<AccountLayout />}>
         <Route index element={<AccountHome />} />
       </Route>
-      {/* <PrivateRoute path='/account'  Component={<AboutLayout/>} /> */}
     </>
   )
 );
