@@ -4,3 +4,4 @@ config.env
 client/node_modules
 .vscode
 .VSCodeCounter
+scratch/authToken

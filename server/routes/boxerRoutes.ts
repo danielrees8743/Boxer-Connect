@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 import boxerController from '../controllers/boxerController';
 import authController from '../controllers/authController';
 
@@ -13,7 +14,8 @@ router
   )
   .post(
     authController.protect,
-    authController.restrictTo('Head-coach'),
+    authController.restrictTo('Head-Coach'),
+    boxerController.uploadBoxerProfilePicture,
     boxerController.addBoxer
   );
 
@@ -27,6 +29,7 @@ router
   .patch(
     authController.protect,
     authController.restrictTo('Head-Coach', 'Assistant-Coach'),
+    boxerController.uploadBoxerProfilePicture,
     boxerController.updateBoxer
   )
   .delete(

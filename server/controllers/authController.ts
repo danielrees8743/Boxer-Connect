@@ -326,6 +326,3 @@ export default {
   resetPassword,
   updatePassword,
 };
-function next(arg0: AppError): void | PromiseLike<void> {
-  throw new Error('Function not implemented.');
-}

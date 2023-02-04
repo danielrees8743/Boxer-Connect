@@ -29,7 +29,8 @@ app.use(
 );
 
 //info Body parser, reading data from body into req.body
-app.use(express.json({ limit: '10kb' }));
+app.use(express.json({ limit: '100kb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 //info Cookie parser
 app.use(cookieParser());
@@ -64,7 +65,7 @@ if (process.env.NODE_ENV === 'development') {
 //note Middleware for testing purposes if needed
 app.use((req: Request, res: Response, next: NextFunction) => {
   // console.log(req.headers);
-  console.log('Cookie Parser', req.cookies);
+  // console.log('Cookie Parser', req.cookies);
   next();
 });
 
@@ -94,4 +95,3 @@ app.listen(port, () => {
   console.info(theme.info(`Server is running on http://127.0.0.1:${port}`));
   connectDB();
 });
-
