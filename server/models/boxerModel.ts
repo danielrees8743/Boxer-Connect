@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import { IBoxer } from '../types/Interfaces';
 import shortid from 'shortid';
 import Club from './clubModel';
+import { uploadFile } from '../hooks/useStorage';
 
 const BoxerSchema = new Schema<IBoxer>({
   club: {
@@ -85,6 +86,12 @@ BoxerSchema.pre('save', async function (next): Promise<void> {
   this.id = shortid.generate();
   next();
 });
+
+//* Will upload profile picture to s3 bucket and get url back and save to database
+// BoxerSchema.pre('save', async function (next) {
+//   result. = this.picture;
+// next();
+// });
 
 BoxerSchema.pre(/^find/, function (next) {
   this.populate({ path: 'club', select: '-__v' }).select('-__v');

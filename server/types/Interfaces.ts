@@ -22,6 +22,22 @@ interface IConfig {
     expiresIn?: string;
     cookieExpiresIn?: string;
   };
+  firebase: {
+    apiKey?: string;
+    authDomain?: string;
+    projectId?: string;
+    storageBucket?: string;
+    messagingSenderId?: string;
+    appId?: string;
+    measurementId?: string;
+  };
+  aws: {
+    bucketName?: string;
+    region?: string;
+    accessKeyId?: string;
+    secretAccessKey?: string;
+    endpoint?: string;
+  };
 }
 
 //! Need to look at this maybe a generic !!
