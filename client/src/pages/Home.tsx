@@ -9,7 +9,7 @@ export default function Home() {
     <Box as='main'>
       <HStack className='hero' bg='secondary' justifyContent='center'>
         //fix: Uncomment out Carousel component
-        {/* <Carousel /> */}
+        <Carousel />
       </HStack>
       <VStack className='features' bg='secondary' mt='10px'>
         <Features />

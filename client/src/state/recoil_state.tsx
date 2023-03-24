@@ -4,23 +4,9 @@ import {
   useRecoilCallback,
   useRecoilSnapshot,
   useRecoilValue,
+  selector,
+  RecoilState,
 } from 'recoil';
-
-// export function DebugButton() {
-//   const onClick = useRecoilCallback(
-//     ({ snapshot }) =>
-//       async () => {
-//         console.debug('Atom values:');
-//         for (const node of snapshot.getNodes_UNSTABLE()) {
-//           const value = await snapshot.getPromise(node);
-//           console.debug(node.key, value);
-//         }
-//       },
-//     []
-//   );
-
-//   return <button onClick={onClick}>Dump State</button>;
-// }
 
 export const userAuthState = atom({
   key: 'authState',
@@ -46,4 +32,16 @@ export const userAuthState = atom({
   },
 });
 
+export const userAuthStateSelector = selector({
+  key: 'authStateSelector',
+  get: ({ get }) => {
+    const authenticatedUser = get(userAuthState);
+    return authenticatedUser;
+  },
+  set: ({ set }, newValue) => {
+    set(userAuthState, newValue);
+    // set the user in local storage
+    localStorage.setItem('user', JSON.stringify(newValue));
+  },
+});
 export default userAuthState;

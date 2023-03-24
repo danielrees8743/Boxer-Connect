@@ -19,6 +19,8 @@ router
     boxerController.addBoxer
   );
 
+router.route('/profilePic/:key').get(boxerController.getBoxerImage);
+
 router
   .route('/:id')
   .get(

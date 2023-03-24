@@ -22,8 +22,8 @@ import { fetchClubs, postLogin } from '../../hooks/useAPIFeatures';
 import { useNavigate } from 'react-router-dom';
 
 //* State Management
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { userAuthState } from '../../state/recoil_state';
+import { useRecoilState } from 'recoil';
+import { userAuthState, userAuthStateSelector } from '../../state/recoil_state';
 
 interface Club {
   _id: number;

@@ -4,12 +4,29 @@ import { sendResponse, sendError, sendNotFound } from '../utils/apiResponse';
 import catchErrorsAsync from '../utils/catchErrorsAsync';
 import AppError from '../utils/appError';
 import multer from 'multer';
+import fs from 'fs';
+import util from 'util';
 
 import { uploadFile, getFileStream } from '../hooks/useStorage';
+
+//* Creates an unlink function to remove the image file from the uploads folder
+const unlinkFile = util.promisify(fs.unlink);
 
 //* Multer upload config
 const upload = multer({
   dest: 'uploads/',
+  fileFilter: (req, file, cb) => {
+    if (
+      file.mimetype === 'image/png' ||
+      file.mimetype === 'image/jpg' ||
+      file.mimetype === 'image/jpeg'
+    ) {
+      cb(null, true);
+    } else {
+      // @ts-ignore
+      cb(new AppError('Only images are allowed', 406), false);
+    }
+  },
 });
 
 export const uploadBoxerProfilePicture = upload.single('picture');
@@ -74,6 +91,9 @@ export const addBoxer = catchErrorsAsync(
     const file = req.file as Express.Multer.File;
     const result = await uploadFile(file);
 
+    //* Removes the image file from the upload folder
+    await unlinkFile(file.path);
+
     const boxer = await Boxer.create({
       firstName,
       lastName,
@@ -90,14 +110,15 @@ export const addBoxer = catchErrorsAsync(
       picture: result.Key,
     });
 
-    // if()
+    Promise.all([result, boxer])
+      .then(() => {
+        sendResponse(res, 201, boxer);
+      })
+      .catch(() => {
+        return next(new AppError('Error adding boxer', 500));
+      });
 
-    if (!result) {
-      return next(new AppError('Problem uploading picture', 400));
-    }
-    console.log(result);
-
-    sendResponse(res, 201, boxer);
+    // sendResponse(res, 201, boxer);
   }
 );
 
@@ -139,6 +160,35 @@ export const deleteBoxer = async (
   }
 };
 
+export const getBoxerImage = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    let key = req.params.key;
+    console.log(req.params);
+    const file = await getFileStream(key);
+
+    if (!file) {
+      sendNotFound(res, 404, 'File not found');
+      return;
+    }
+
+    // const response = {
+    //   statusCode: 200,
+    //   headers: { 'Content-Type': ['image/png', 'image/jpg', 'image/jpeg'] },
+    //   body: file,
+    // };
+
+    console.log(res);
+
+    file.pipe(res);
+    // res.send(response);
+  } catch (error) {
+    sendError(res, 500, error);
+  }
+};
+
 export default {
   getAllBoxers,
   getBoxer,
@@ -146,4 +196,5 @@ export default {
   updateBoxer,
   deleteBoxer,
   uploadBoxerProfilePicture,
+  getBoxerImage,
 };

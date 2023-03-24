@@ -30,7 +30,7 @@ export const sendError = (
   return [
     status,
     res.status(status).json({
-      status: 'fail',
+      status: 'failed',
       error,
     }),
   ];

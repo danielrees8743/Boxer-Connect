@@ -15,7 +15,6 @@ import overrides from './theme/index';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <RecoilRoot>
-      {/* <DebugButton /> */}
       <QueryClientProvider client={queryClient}>
         <ChakraProvider resetCSS theme={overrides}>
           <App />
